@@ -1,6 +1,11 @@
-###### Proyecto text mining constitucion chilena
+########################################################
+
+###### Proyecto text mining constitucion chilena #######
+
+########################################################
 
 #Creador: Moises Tellez
+
 #Fecha: 2022-02-20
 
 #Librerias
@@ -45,13 +50,11 @@ texto<-tibble(vector)
 
 
 
-
-
 ################ PRIMER ANALISIS: TOKEN DE PALABRAS ################
 
 #Pasando el texto a tokens (palabras)
 texto2 <- texto %>% 
-  unnest_tokens(word,vector,drop = FALSE) #el primer "word" indica que la separaci?n ser? a nivel palabra
+  unnest_tokens(word,vector,drop = FALSE) #el primer "word" indica que la separacion sera a nivel palabra
 
 texto2$vector<- as.character(texto2$vector)
 
@@ -79,7 +82,7 @@ frec_texto %>%
   ggplot(aes(x= n,y=word)) +
   geom_col()+
   labs(y = NULL)+
-  ggtitle("Palabras m?s usadas - Constituci?n chilena")
+  ggtitle("Palabras mas usadas - Constitucion chilena")
 
 
 #Generamos el wordcloud
@@ -90,7 +93,7 @@ wordcloud(words = frec_texto$word, freq = frec_texto$n,
 
 
 ############ Bigramas #################
-#Es la relacion de dos palabras (Ej: Don-Quijote, Sancho-Panza)
+#Es la relacion de dos palabras
 
 
 review_bigrams <- texto %>%  ##Usamos la tabla sin eliminar por stop words
@@ -130,7 +133,7 @@ review_bigrams %>%
   ggplot(aes(x= n,y=frase)) +
   geom_col()+
   labs(y = NULL)+
-  ggtitle("An?lisis por pares de palabras")
+  ggtitle("Analisis por pares de palabras")
 
 
 
